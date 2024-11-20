@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Outfit', sans-serif;
+}
+
+.activity-modal {
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.activity-list-item {
+    justify-content: center;
+}
+
+.activity-button {
+    background-color: #FBF4DB;
+    color: #FC8F54;
+    margin-right: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.activity-button:last-child {
+    margin-right: 0;
+}
+
+.activity-button:hover {
+    background-color: #FB6D48;
+    color: #FFFFFF;
+}
+
+.update-button {
+    background-color: #FBF4DB;
+    color: #FC8F54;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+    background-color: #FB6D48;
+    color: #FFFFFF;
+}
+
+.update-input {
+    font-family: 'Outfit', sans-serif;
+}
+
+.todo-text {
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+.deadline-text {
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
+}

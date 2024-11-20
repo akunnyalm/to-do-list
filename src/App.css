@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
+
 .App {
   text-align: center;
 }
@@ -26,6 +28,34 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.form-label {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+}
+
+.form-input {
+  font-family: 'Outfit', sans-serif;
+}
+
+.form-button {
+  font-family: 'Outfit', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.item {
+  font-family: 'Outfit', sans-serif;
+  background-color: #FC8F54;
+  padding: 16px;
+  text-align: center;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 150px;
 }
 
 @keyframes App-logo-spin {
