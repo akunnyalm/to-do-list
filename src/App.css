@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
 
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
 .App {
   text-align: center;
+  font-family: 'Outfit', sans-serif;
 }
 
 .App-logo {
@@ -30,32 +35,23 @@
   color: #61dafb;
 }
 
-.form-label {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 500;
+.centered {
+  text-align: center;
 }
 
-.form-input {
-  font-family: 'Outfit', sans-serif;
-}
-
-.form-button {
-  font-family: 'Outfit', sans-serif;
-  margin-top: 20px;
+.input-field {
   margin-bottom: 20px;
 }
 
-.item {
-  font-family: 'Outfit', sans-serif;
-  background-color: #FC8F54;
-  padding: 16px;
-  text-align: center;
-  color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 250px;
-  height: 150px;
+.text-label {
+  margin-bottom: 10 px !important;
+  text-align: center !important;
+}
+
+.form-button {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  background-color: #4335A7 !important;
 }
 
 @keyframes App-logo-spin {

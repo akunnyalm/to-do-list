@@ -1,15 +1,18 @@
 import './Activity.css';
 import './App.css';
 import React, { useState } from 'react'
-import { Box, Modal, List, ListItem, ListItemText, Input, InputLabel, Button } from '@mui/material'
+import { Avatar, Box, Modal, List, ListItem, ListItemText, IconButton, Input, InputLabel, TextField, Button } from '@mui/material'
 import { doc, deleteDoc, setDoc } from 'firebase/firestore';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
+
 import FIREBASE_DB from './firebaseConfig';
 
 function Activity(props) {
     const [open, setOpen] = useState(false);
     const [input, setInput] = useState('');
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
 
     const handleOpen = () => {
         setOpen(true);
@@ -22,11 +25,18 @@ function Activity(props) {
     const handleUpdate = () => {
         try {
             setDoc(doc(FIREBASE_DB, 'activity', props.todo.id), {
-                todo: input
+                todo: input,
+                date: date,
+                time: time,
             }, {merge: true});
+
             setOpen(false);
 
             setInput('');
+            setDate('');
+            setTime('');
+
+            console.log('Updating activity:', input, date, time);
         } catch (error) {
             console.error("Unable to update activity: ", error);
         }
@@ -49,48 +59,79 @@ function Activity(props) {
                 onClose={handleClose}
             >
                 <Box className="activity-modal">
-                    <h1>update activity</h1>
-                    <InputLabel className='form-label'>update activity</InputLabel>
+                    <InputLabel className='update-label'
+                    >update activity</InputLabel>
+                    {/* update activity */}
                     <Input 
                         placeholder={props.todo.todo}
                         className='update-input' 
                         value={input} 
                         onChange={event => setInput(event.target.value)}
                     />
+                    {/* update date */}
+                    <div className='input-label'>select date</div>
+                    <TextField
+                        type="date"
+                        className='update-input'
+                        value={date}
+                        onChange={event => setDate(event.target.value)}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                    {/* update time */}
+                    <div className='input-label'>select time</div>
+                    <TextField
+                        type="time"
+                        className='update-input'
+                        value={time}
+                        onChange={event => setTime(event.target.value)}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
                     
-                    <Button className='update-button' onClick={handleUpdate}>Update</Button>
+                    <Button disabled={!input || !date || !time } className='update-button' onClick={handleUpdate}>Update</Button>
                 </Box>  
             </Modal>
+
             <Box className="activity-list">
                 <List>
                 <ListItem sx={{justifyContent: 'center'}}>
                     <ListItemText 
                         className='todo-text'
                         primary={props.todo.todo}
-                        secondary={<span className='deadline-text'>deadline</span>}
+                        secondary={
+                            <div className='deadline-text'>
+                                {props.todo.date ? (
+                                    <>
+                                        <div>{new Date(props.todo.date).toLocaleDateString()}</div>
+                                        <div>{props.todo.time || 'no time'}</div>
+                                    </>
+                                ) : (
+                                    'no deadline'
+                                )}
+                            </div>
+                        } // display date and time
+                    
                         sx={{
-                            fontSize: 32,
-                            fontFamily: "Outfit, sans-serif !important",
-                            color: "#fff",
-                            textAlign: "center",
+                            '& .MuiListItemText-primary': {
+                                fontSize: '1.5rem', 
+                                fontWeight: 'bold', 
+                            },
                         }}
                     />              
                 </ListItem>
-
-                <Button 
-                    onClick={handleOpen} 
-                    variant="contained"
-                    //className='activity-button'
-                >
-                    <EditIcon />
-                </Button>
-                <Button 
-                    onClick={handleDelete} 
-                    variant="contained"
-                    //className='activity-button'
-                >
-                    <DeleteForeverIcon />
-                </Button>
+                <IconButton onClick={handleOpen}>
+                    <Avatar className='avatar-button'>
+                        <EditIcon />
+                    </Avatar>
+                </IconButton>
+                <IconButton onClick={handleDelete}>
+                    <Avatar className='avatar-button'>
+                        <DeleteForeverIcon />
+                    </Avatar>
+                </IconButton>
                 </List>
             </Box>
         </>

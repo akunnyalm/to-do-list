@@ -1,17 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
-
-body {
-    font-family: 'Outfit', sans-serif;
-}
-
 .activity-modal {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;
+    width: 40%;
+    height: auto;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 16px;
@@ -26,49 +23,47 @@ body {
     width: 100%;
 }
 
-.activity-list-item {
-    justify-content: center;
-}
-
-.activity-button {
-    background-color: #FBF4DB;
-    color: #FC8F54;
-    margin-right: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.activity-button:last-child {
-    margin-right: 0;
-}
-
-.activity-button:hover {
-    background-color: #FB6D48;
-    color: #FFFFFF;
+.avatar-button {
+    background-color: #F5EFFF !important;
+    color: #4335A7 !important;
 }
 
 .update-button {
-    background-color: #FBF4DB;
-    color: #FC8F54;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
+    background-color: #E5D9F2 !important;
+    color: #A594F9 !important;
+    transition: background-color 0.3s ease !important;
+    box-shadow: none !important;
 }
 
 .update-button:hover {
-    background-color: #FB6D48;
-    color: #FFFFFF;
+    background-color: #A594F9 !important;
+    color: #E5D9F2 !important;
+}
+
+.update-label {
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
 }
 
 .update-input {
-    font-family: 'Outfit', sans-serif;
+    margin-top: 10px !important;
+    color: #E5D9F2;
+}
+
+.input-label {
+    margin-bottom: 10 px !important;
+    text-align: center !important;
 }
 
 .todo-text {
-    font-family: 'Outfit', sans-serif;
-    color: #fff;
-    text-align: center;
+    color: #ffffff !important;
+    text-align: center ;
 }
 
 .deadline-text {
-    font-family: 'Outfit', sans-serif;
-    color: #fff;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    margin-top: 10px;
 }
+
